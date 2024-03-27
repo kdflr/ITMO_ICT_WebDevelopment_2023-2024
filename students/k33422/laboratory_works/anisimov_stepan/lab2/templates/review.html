@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Write a review</title>
+</head>
+<body>
+  <h1>Review</h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ review_form }}
+    <button type="submit">Send</button>
+  </form>
+</body>
+</html>

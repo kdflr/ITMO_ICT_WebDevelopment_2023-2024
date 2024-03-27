@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of hotels</title>
+</head>
+<body>
+<h1>Hotels</h1>
+<ul>
+{% for hotel in object_list %}
+<p><strong>{{ hotel.name }} in {{ hotel.city }}, {{ hotel.country }}</strong>
+    <a href="/{{ hotel.city }}/rooms/">View rooms</a></p>
+<br>
+{{ hotel.description }}
+<br>
+<br>
+{% empty %}
+No hotels yet
+{% endfor %}
+</ul>
+</body>
+</html>

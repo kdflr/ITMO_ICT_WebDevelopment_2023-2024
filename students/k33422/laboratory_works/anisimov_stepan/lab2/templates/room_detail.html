@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Room</h1>
+{% if user.is_authenticated %}
+    <form method="POST">
+    {% csrf_token %}
+    {{ booking_form }}
+    <button type="submit">Book</button>
+  </form>
+  {% else %}
+      <p>Login to book the room</p>
+  {% endif %}
+<br>
+{% for comm in comments %}
+    {{ comm.rating }}<br/>
+    {{ comm.user.username }}: {{ comm.content }}<br/>
+    <hr/>
+
+    {% endfor %}
+
+</body>
+</html>

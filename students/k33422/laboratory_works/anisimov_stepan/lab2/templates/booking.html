@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book a room</title>
+</head>
+<body>
+<form action="/user/book-room/book" method="POST">
+    {%csrf_token%}
+    <label for="username">Hotel:</label>
+    <input type="text" name="hotel" disabled value={{room.hotel.name}}>
+    <label for="username">Location:</label>
+    <input type="text" name="location" disabled value={{room.hotel.location}}>
+    <label for="person">username:</label>
+    <input type="text" name="username" required="required" value={{request.user}}>
+    <label for="person">Person:</label>
+    <input type="number" name="person" min="1" max={{room.capacity}} required="true" value={{room.capacity}}>
+    <label for="password2">Check-in:</label>
+    <input type="date" name="check_in" required="required">
+    <label for="password2">Check-Out:</label>
+    <input type="date" name="check_out" required="required">
+    <label for="username">Room Type:</label>
+    <input type="text" name="room_type" disabled value={{room.get_room_type_display}}>
+    <label for="password2">Price:</label>
+    <input type="number" name="price" disabled value={{room.price}}>
+    <button type="submit">Book Now</button>
+    <input type="hidden" name="room_id" value={{room.id}}>
+</form>
+</body>
+</html>
